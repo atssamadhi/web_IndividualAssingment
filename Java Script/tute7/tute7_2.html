@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate Marks</title>
+</head>
+<body>
+    <h2>Enter 5 marks:</h2>
+    <input type="number" id="mark1" placeholder="Mark 1">
+    <input type="number" id="mark2" placeholder="Mark 2">
+    <input type="number" id="mark3" placeholder="Mark 3">
+    <input type="number" id="mark4" placeholder="Mark 4">
+    <input type="number" id="mark5" placeholder="Mark 5">
+    <button id="calculateButton">Calculate</button>
+    <button id="gradeButton">Grade</button>
+
+    <script>
+        
+        function calculateMarks() {
+            const mark1 = parseFloat(document.getElementById("mark1").value);
+            const mark2 = parseFloat(document.getElementById("mark2").value);
+            const mark3 = parseFloat(document.getElementById("mark3").value);
+            const mark4 = parseFloat(document.getElementById("mark4").value);
+            const mark5 = parseFloat(document.getElementById("mark5").value);
+
+            const total = mark1 + mark2 + mark3 + mark4 + mark5;
+            const average = total / 5;
+
+            return { total, average };
+        }
+
+        
+        function displayResult() {
+            const { total, average } = calculateMarks();
+            alert(`Total: ${total}\nAverage: ${average.toFixed(2)}`);
+        }
+
+
+        function checkGrade() {
+            const { average } = calculateMarks();
+            if (average > 30) {
+                alert("Congrats! You passed!");
+            } else {
+                alert("Better luck next time.");
+            }
+        }
+
+        
+        const calculateButton = document.getElementById("calculateButton");
+        const gradeButton = document.getElementById("gradeButton");
+
+        
+        calculateButton.addEventListener("click", displayResult);
+        gradeButton.addEventListener("click", checkGrade);
+    </script>
+</body>
+</html>
