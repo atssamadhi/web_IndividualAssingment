@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day of the Week</title>
+</head>
+<body>
+  <script>
+    // Function to display the day of the week based on user input
+    function displayDayOfWeek() {
+      // Prompt the user to enter a number from 1 to 7
+      var userInput = prompt("Enter a number from 1 to 7:");
+
+      // Parse the user input as an integer
+      var dayNumber = parseInt(userInput);
+
+      // Check if the input is valid (a number between 1 and 7)
+      if (isNaN(dayNumber) || dayNumber < 1 || dayNumber > 7) {
+        alert("Invalid input. Please enter a number from 1 to 7.");
+        return;
+      }
+
+      // Array to map day numbers to day names
+      var daysOfWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ];
+
+      // Get the day name based on the day number (adjust index by -1 as arrays are 0-based)
+      var dayName = daysOfWeek[dayNumber - 1];
+
+      // Display the result
+      alert("The day is: " + dayName);
+    }
+
+    // Call the function to start the program
+    displayDayOfWeek();
+  </script>
+</body>
+</html>
