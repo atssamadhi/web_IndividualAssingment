@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Extract Year of Birth</title>
+</head>
+<body>
+  <label for="nicInput">Enter NIC number:</label>
+  <input type="text" id="nicInput">
+  <button onclick="extractYearOfBirth()">Extract Year of Birth</button>
+  <p id="result"></p>
+
+  <script>
+    // Function to extract the year of birth from the NIC number
+    function extractYearOfBirth() {
+      // Get the NIC number from the input field
+      var nicNumber = document.getElementById("nicInput").value;
+
+      // Check if the NIC number is valid and has the correct length (10 characters)
+      if (nicNumber.length !== 10) {
+        alert("Invalid NIC number. It should be 10 characters long.");
+        return;
+      }
+
+      // Extract the year part (first 2 characters) from the NIC number
+      var yearPart = nicNumber.substr(0, 2);
+
+      // Get the current year's last two digits
+      var currentYear = new Date().getFullYear().toString().substr(-2);
+
+      // Determine the century based on the current year and the year part from the NIC
+      var centuryPrefix = (yearPart > currentYear) ? "19" : "20";
+
+      // Concatenate century and year to get the full year of birth
+      var yearOfBirth = centuryPrefix + yearPart;
+
+      // Display the result
+      document.getElementById("result").textContent = "Year of Birth: " + yearOfBirth;
+    }
+  </script>
+</body>
+</html>
