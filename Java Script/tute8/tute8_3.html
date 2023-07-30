@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate Marks</title>
+</head>
+<body>
+    <h2>Enter 5 marks:</h2>
+    <input type="number" id="mark1" placeholder="Mark 1">
+    <input type="number" id="mark2" placeholder="Mark 2">
+    <input type="number" id="mark3" placeholder="Mark 3">
+    <input type="number" id="mark4" placeholder="Mark 4">
+    <input type="number" id="mark5" placeholder="Mark 5">
+    <button id="calculateButton">Calculate</button>
+    <button id="gradeButton">Grade</button>
+
+    <script>
+        
+        function calculateMarks() {
+            const mark1 = parseFloat(document.getElementById("mark1").value);
+            const mark2 = parseFloat(document.getElementById("mark2").value);
+            const mark3 = parseFloat(document.getElementById("mark3").value);
+            const mark4 = parseFloat(document.getElementById("mark4").value);
+            const mark5 = parseFloat(document.getElementById("mark5").value);
+
+            const total = mark1 + mark2 + mark3 + mark4 + mark5;
+            const average = total / 5;
+
+            return { total, average };
+        }
+
+        
+        function displayResult() {
+            const { total, average } = calculateMarks();
+            alert(`Total: ${total}\nAverage: ${average.toFixed(2)}`);
+        }
+
+
+        <!DOCTYPE html>
+<html>
+<head>
+    <title>Change Background Color on Hover</title>
+    <style>
+        /* Styling the button with initial background color */
+        button {
+            background-color: #f00; /* Red */
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="redButton" onmouseover="changeColor('red')" onmouseout="resetColor('red')">Red</button>
+    <button id="greenButton" onmouseover="changeColor('green')" onmouseout="resetColor('green')">Green</button>
+    <button id="blueButton" onmouseover="changeColor('blue')" onmouseout="resetColor('blue')">Blue</button>
+
+    <script>
+        // Function to change background color on hover
+        function changeColor(color) {
+            const button = document.getElementById(color + "Button");
+            switch (color) {
+                case "red":
+                    button.style.backgroundColor = "#f00"; // Red
+                    break;
+                case "green":
+                    button.style.backgroundColor = "#0f0"; // Green
+                    break;
+                case "blue":
+                    button.style.backgroundColor = "#00f"; // Blue
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        // Function to reset background color on mouseout
+        function resetColor(color) {
+            const button = document.getElementById(color + "Button");
+            button.style.backgroundColor = color === "red" ? "#f00" : color === "green" ? "#0f0" : "#00f";
+        }
+    </script>
+</body>
+</html>
