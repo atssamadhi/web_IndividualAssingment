@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mathematical Operations</title>
+</head>
+<body>
+    <script>
+        // Function to get user input from prompt and parse it as a number
+        function getInput(message) {
+            return parseFloat(prompt(message));
+        }
+
+        // Function to perform addition
+        function addition() {
+            const num1 = getInput("Enter the first number:");
+            const num2 = getInput("Enter the second number:");
+            const result = num1 + num2;
+            alert(`Addition Result: ${result}`);
+        }
+
+        // Function to perform subtraction
+        function subtraction() {
+            const num1 = getInput("Enter the first number:");
+            const num2 = getInput("Enter the second number:");
+            const result = num1 - num2;
+            alert(`Subtraction Result: ${result}`);
+        }
+
+        // Function to perform division
+        function division() {
+            const num1 = getInput("Enter the dividend:");
+            const num2 = getInput("Enter the divisor:");
+            if (num2 === 0) {
+                alert("Error: Division by zero is not allowed.");
+            } else {
+                const result = num1 / num2;
+                alert(`Division Result: ${result}`);
+            }
+        }
+
+        // Function to perform multiplication
+        function multiplication() {
+            const num1 = getInput("Enter the first number:");
+            const num2 = getInput("Enter the second number:");
+            const result = num1 * num2;
+            alert(`Multiplication Result: ${result}`);
+        }
+
+        // Call the appropriate function based on user choice
+        function performOperation() {
+            const operation = prompt("Enter the operation you want to perform:\n1. Addition\n2. Subtraction\n3. Division\n4. Multiplication");
+            switch (operation) {
+                case "1":
+                    addition();
+                    break;
+                case "2":
+                    subtraction();
+                    break;
+                case "3":
+                    division();
+                    break;
+                case "4":
+                    multiplication();
+                    break;
+                default:
+                    alert("Invalid choice. Please choose a valid operation.");
+            }
+        }
+
+        // Call the main function to start the program
+        performOperation();
+    </script>
+</body>
+</html>
